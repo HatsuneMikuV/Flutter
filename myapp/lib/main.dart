@@ -13,9 +13,33 @@ class MyApp extends StatelessWidget {
           title: new Text('Welcome to Flutter'),
         ),
         body: new Center(
-          child: new Text('Hello world!'),
+          title: new Text('Hello world!')
         ),
+//        body: new Center(
+//          child: testTwo(),
+//        ),
       ),
     );
+
+  }
+
+  testTwo() {
+
+    List items = loadData();
+
+    return ListView.builder(
+        itemCount: items.length,
+        itemBuilder: (BuildContext context, int position) {
+
+          return new Card(
+              child: new ListTile(
+                  title: new Text(items[position])
+              )
+          );
+        });
+  }
+
+  loadData() {
+    return new List<String>.generate(100, (i) => "$i");
   }
 }
