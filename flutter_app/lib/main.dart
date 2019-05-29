@@ -11,6 +11,26 @@ import 'package:flutter_fps/flutter_fps.dart';
 void main() => runApp(MyApp());
 
 
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      title: 'Startup Name Generator',
+      theme: new ThemeData(
+          primaryColor: Colors.cyan
+      ),
+      home: new Scaffold(
+        appBar: new AppBar(
+          title: new Text('Welcome to Flutter'),
+        ),
+        body: new Center(
+          child: new Text('Hello World'),
+        ),
+      ),
+    );
+  }
+
+}
 
 /*
 
