@@ -13,6 +13,55 @@ void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
+  final appName = 'Custom Themes';
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      title: appName,
+      theme: new ThemeData(
+          primaryColor: Colors.cyan
+      ),
+      home: new MyHome(
+          title: appName,
+      ),
+    );
+  }
+}
+
+class MyHome extends StatelessWidget {
+    final String title;
+
+    MyHome({Key key, @required this.title}):super(key:key);
+
+    @override
+    Widget build(BuildContext context) {
+      return new Scaffold(
+        appBar: new AppBar(
+          title: new Text(title),
+        ),
+        body: new Center(
+          child: new Container(
+            color: Theme.of(context).accentColor,
+            child: new Text(
+              'Text with a background',
+              style: Theme.of(context).textTheme.title,
+            ),
+          ),
+        ),
+        floatingActionButton: new Theme(
+          data: Theme.of(context).copyWith(accentColor: Colors.yellow),
+          child: new FloatingActionButton(
+            onPressed: null,
+            child: new Icon(Icons.add),
+          ),
+        ),
+      );
+  }
+}
+
+/*
+
+class MyApp extends StatelessWidget {
+  @override
   Widget build(BuildContext context) {
     return new MaterialApp(
       title: 'Startup Name Generator',
@@ -37,6 +86,8 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+*/
 
 /*
 
