@@ -20,16 +20,22 @@ class MyApp extends StatelessWidget {
           primaryColor: Colors.cyan
       ),
       home: new Scaffold(
+
         appBar: new AppBar(
           title: new Text('Welcome to Flutter'),
         ),
         body: new Center(
-          child: new Text('Hello World'),
+          child: new Text('Hello World',
+            textAlign: TextAlign.left,
+            maxLines: 1,
+            style: TextStyle(
+              color: Colors.redAccent,
+            ),
+          ),
         ),
       ),
     );
   }
-
 }
 
 /*
