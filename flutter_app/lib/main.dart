@@ -10,7 +10,98 @@ import 'package:flutter_fps/flutter_fps.dart';
 
 void main() => runApp(MyApp());
 
+class MyApp extends StatelessWidget {
+  @override
+  final appName = 'Custom Themes';
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      title: appName,
+      theme: new ThemeData(
+          primaryColor: Colors.cyan
+      ),
+      home: new MyHome(
+        title: appName,
+      ),
+    );
+  }
+}
 
+
+class MyHome extends StatelessWidget {
+  final String title;
+  MyHome({Key key, @required this.title}):super(key:key);
+
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text(title),
+      ),
+      body: new Center(
+        child: new Column(
+          children: [
+            new Text(
+              'Text with a background',
+              style: Theme.of(context).textTheme.title,
+            ),
+            RaisedButton.icon(
+              icon: Icon(Icons.send),
+              label: Text("发送"),
+              onPressed: (){},
+            ),
+            OutlineButton.icon(
+              icon: Icon(Icons.add),
+              label: Text("添加"),
+              onPressed: (){},
+            ),
+            FlatButton.icon(
+              icon: Icon(Icons.info),
+              label: Text("详情"),
+              onPressed: (){},
+            ),
+            RaisedButton(
+              color: Colors.blue,
+              highlightColor: Colors.blue[700],
+              colorBrightness: Brightness.dark,
+              splashColor: Colors.grey,
+              child: Text("Submit"),
+              shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+              onPressed: () {},
+            ),
+            OutlineButton(
+              color: Colors.blue,
+              highlightColor: Colors.blue[700],
+              splashColor: Colors.grey,
+              child: Text("Submit"),
+              shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+              onPressed: () {},
+            ),
+            FlatButton(
+              color: Colors.blue,
+              highlightColor: Colors.blue[700],
+              colorBrightness: Brightness.dark,
+              splashColor: Colors.grey,
+              child: Text("Submit"),
+              shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+              onPressed: () {},
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: new Theme(
+        data: Theme.of(context).copyWith(accentColor: Colors.yellow),
+        child: new FloatingActionButton(
+          onPressed: null,
+          child: new Icon(Icons.add),
+        ),
+      ),
+    );
+
+  }
+}
+
+/*
+文本样式
 class MyApp extends StatelessWidget {
   @override
   final appName = 'Custom Themes';
@@ -57,6 +148,7 @@ class MyHome extends StatelessWidget {
       );
   }
 }
+*/
 
 /*
 
